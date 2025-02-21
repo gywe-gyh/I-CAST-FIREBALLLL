@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
@@ -11,11 +12,12 @@ public class Player : MonoBehaviour
     public Transform ballPoint;
     public Slider hpbar;
     public MANAGERUI ui;
-    
+    public int coins;
 
     private void Start()
     {
-        ui.UPDhpbar(health);
+       
+        
     }
 
     public void TakeDamage(int damage)
@@ -23,7 +25,7 @@ public class Player : MonoBehaviour
         
          health -= damage;
         ui.ShowOLegsWords("aboba");
-        ui.UPDhpbar(health);
+        
         hpbar.value = health;
   
         if (health <= 0)
@@ -41,5 +43,9 @@ public class Player : MonoBehaviour
       position, ballPoint.
       rotation);
         }
+    }
+    public void CollectCoins()
+    {
+        coins += 1;
     }
 }
